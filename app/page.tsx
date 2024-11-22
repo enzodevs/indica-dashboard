@@ -9,13 +9,14 @@ import { calculateMetrics } from "@/lib/calculator"
 import { FunnelParams, FunnelMetrics } from "@/types/calculator"
 import { ROIChart } from "@/components/dashboard/roi-chart"
 import { UpsellBreakdown } from "@/components/dashboard/upsell-breakdown"
+import { CostBreakdown } from "@/components/dashboard/cost-breakdown"
 
 export default function Home() {
   const [metrics, setMetrics] = useState<FunnelMetrics>(() => {
     const initialParams: FunnelParams = {
       hostingVSL: 97,
       hostingSite: 50,
-      costPerPromotion: 0,
+      costPerPromotion: 1000,
       promotionsCount: 1,
       estimatedReach: 1000,
       productPrice: 37,
@@ -23,11 +24,11 @@ export default function Home() {
       kirvanoFeeFixed: 2,
       upsellPrice: 30,
       upsellNetPercentage: 40,
-      vslConversion: 50,
+      vslConversion: 10,
       telegramConversion: 50,
       checkoutConversion: 20,
       purchaseConversion: 10,
-      upsellConversion: 30,
+      upsellConversion: 60,
       upsellCount: 1,
     }
     return calculateMetrics(initialParams)
@@ -51,6 +52,7 @@ export default function Home() {
           <FunnelChart metrics={metrics} />
           <ROIChart metrics={metrics} />
           <UpsellBreakdown metrics={metrics} />
+          <CostBreakdown metrics={metrics} />
         </div>
       </div>
     </main>

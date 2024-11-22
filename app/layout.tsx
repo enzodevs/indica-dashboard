@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Dashboard de Vendas",
+  title: "Dashboard Indica Bet",
   description: "Calculadora de métricas de vendas e ROI",
 }
 
